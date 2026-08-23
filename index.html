@@ -2,67 +2,28 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#6f7f77" />
-  <title>לירון מתכוננת למבחני המיון</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#7367b7" />
+  <title>לירון – מתרגלת בנחת</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="shell">
-    <header class="hero">
-      <div class="hero-text">
-        <div class="eyebrow">תרגול אישי • בקצב שלך • בלי שיפוט</div>
-        <h1>לירון, כאן מתאמנים — לא נבחנים.</h1>
-        <p>המטרה היא להכיר את סוגי השאלות, לזהות תבניות ולצבור ביטחון. טעות כאן היא לא ציון עלייך — היא רק עוד דרך להבין איך השאלה עובדת.</p>
-      </div>
-      <div class="breath-card" aria-label="מסר מרגיע">
-        <div class="breath-dot"></div>
-        <strong>לפני שמתחילים</strong>
-        <span>שאיפה רגילה. נשיפה ארוכה. ואז רק שאלה אחת.</span>
-      </div>
-    </header>
+  <main id="app" aria-live="polite"></main>
 
-    <nav class="tabs" aria-label="ניווט ראשי">
-      <button class="tab active" data-view="home">בית</button>
-      <button class="tab" data-view="practice">תרגול לפי נושא</button>
-      <button class="tab" data-view="short">מבחן קצר</button>
-      <button class="tab" data-view="long">מבחן ארוך</button>
-      <button class="tab" data-view="tips">כללי זהב</button>
-    </nav>
+  <button class="panic-fab" type="button" onclick="openPause()" aria-label="אני בלחץ – פתיחת הפסקה מרגיעה">
+    <span aria-hidden="true">♡</span>
+    <strong>אני בלחץ</strong>
+  </button>
 
-    <main>
-      <section id="home" class="view active">
-        <div class="welcome-grid">
-          <article class="card soft-green">
-            <h2>מה יש כאן?</h2>
-            <p>5 סקשנים, 20 שאלות בכל סקשן, משוב מידי והסבר פשוט לכל תשובה.</p>
-            <div class="pill-row"><span>כמותי</span><span>מילולי</span><span>אנגלית</span><span>אישיות</span><span>אמינות</span></div>
-          </article>
-          <article class="card soft-blue"><h2>מבחן קצר</h2><p>15 שאלות מעורבות. טוב להתחלה, להתחממות או ליום שבו אין לך כוח למבחן ארוך.</p><button class="primary" data-start-test="short">מתחילה קצר</button></article>
-          <article class="card soft-rose"><h2>מבחן ארוך</h2><p>50 שאלות מעורבות. סימולציה רציפה עם התקדמות, זמן והפסקות מותרות.</p><button class="primary" data-start-test="long">מתחילה ארוך</button></article>
-        </div>
-        <div class="anchor-card"><h2>שלושת המשפטים שלך בזמן לחץ</h2><div class="anchors"><div><b>1.</b> אני לא צריכה לדעת הכול כדי להצליח.</div><div><b>2.</b> אם נתקעתי — אני מדלגת וחוזרת אם אפשר.</div><div><b>3.</b> שאלה אחת לא קובעת את כל המבחן.</div></div></div>
-        <div class="disclaimer">התרגול כאן נבנה בסגנון כללי של מבחני מיון ואינו מבחן רשמי של תיל או של KPMG.</div>
-      </section>
-
-      <section id="practice" class="view"><div class="section-head"><div><h2>תרגול לפי נושא</h2><p>בחרי סקשן. אפשר לעצור בכל רגע ולחזור.</p></div></div><div id="sectionCards" class="section-cards"></div></section>
-      <section id="short" class="view"><div id="shortMount"></div></section>
-      <section id="long" class="view"><div id="longMount"></div></section>
-      <section id="tips" class="view"><div class="tips-grid">
-        <article class="card"><h3>כמותי</h3><p>אחוזים: <b>פער ÷ בסיס × 100</b>. בסדרה חפשי קודם חוק פשוט לפני חוק מסובך.</p></article>
-        <article class="card"><h3>מילולי</h3><p>אל תוסיפי מידע שלא נאמר. בשאלת מסקנה חפשי מה <b>בהכרח</b> נכון.</p></article>
-        <article class="card"><h3>אנגלית</h3><p>לא צריך להבין כל מילה. חפשי את משמעות המשפט והקשר.</p></article>
-        <article class="card"><h3>אישיות</h3><p>אין תשובות נכונות. עני לפי מי שאת בדרך כלל, לא לפי הדמות שאת חושבת שמחפשים.</p></article>
-        <article class="card"><h3>אמינות</h3><p>אין טריק. כנות, עקביות, שמירה על נהלים ושקיפות עדיפות על ניסיון 'לנצח' את השאלון.</p></article>
-        <article class="card calm"><h3>לירון, חשוב</h3><p>אם את מרגישה שהגוף נכנס ללחץ: עצרי ל-30 שניות, שחררי כתפיים, נשפי לאט והמשיכי רק כשאת מוכנה. זו אסטרטגיית מבחן, לא כישלון.</p></article>
-      </div></section>
-    </main>
-  </div>
-
-  <template id="quizTemplate"><div class="quiz-wrap"><div class="quiz-top"><div><div class="quiz-kicker"></div><h2 class="quiz-title"></h2></div><div class="timer" hidden>00:00</div></div><div class="progress-track"><div class="progress-bar"></div></div><div class="progress-copy"></div><article class="question-card"><div class="support-line"></div><h3 class="question-text"></h3><div class="answers"></div><div class="feedback" hidden></div></article><div class="quiz-actions"><button class="ghost quit">יציאה</button><button class="secondary next" disabled>לשאלה הבאה</button></div></div></template>
+  <script src="core.js"></script>
+  <script src="quant.js"></script>
+  <script src="verbal.js"></script>
+  <script src="english.js"></script>
+  <script src="personality.js"></script>
+  <script src="integrity.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
